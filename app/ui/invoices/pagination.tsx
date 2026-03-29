@@ -30,7 +30,7 @@ export default function Pagination({ totalPages }: { totalPages: number }) {
           isDisabled={currentPage <= 1}
         />
 
-        <div className="flex -space-x-px">
+        <div className="flex items-center gap-1 md:gap-2">
           {allPages.map((page, index) => {
             let position: 'first' | 'last' | 'single' | 'middle' | undefined;
 
@@ -73,10 +73,8 @@ function PaginationNumber({
   isActive: boolean;
 }) {
   const className = clsx(
-    'flex h-10 w-10 items-center justify-center text-sm border',
+    'flex h-10 w-10 shrink-0 items-center justify-center rounded-full border text-sm',
     {
-      'rounded-full': position === 'first' || position === 'single',
-      'rounded': position === 'last' || position === 'single',
       'z-10 bg-blue-600 border-blue-600 text-white': isActive,
       'hover:bg-gray-100': !isActive && position !== 'middle',
       'text-gray-300': position === 'middle',
